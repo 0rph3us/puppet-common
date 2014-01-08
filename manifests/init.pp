@@ -2,7 +2,7 @@ include stdlib
 
 class common {
 
-    $packages = [ 'ntp', 'htop', 'vim-puppet', 'puppet', 'puppet-common', 'ethtool']
+    $packages = [ 'htop', 'vim-puppet', 'puppet', 'puppet-common', 'ethtool']
     package { $packages:
         ensure  => 'latest',
         require => Apt::Source['puppetlabs'],
@@ -59,4 +59,9 @@ class common {
         key_server => 'pgp.mit.edu',
         pin        => 1000,
     }
+
+
+	class { '::ntp':
+ 		servers => [ '0.de.pool.ntp.org', '1.de.pool.ntp.org', '2.de.pool.ntp.org', '3.de.pool.ntp.org', ],
+	}
 }
