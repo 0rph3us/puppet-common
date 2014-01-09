@@ -2,7 +2,7 @@ include stdlib
 
 class common {
 
-    $packages = [ 'htop', 'vim-puppet', 'puppet', 'puppet-common', 'ethtool', 'zsh', 'git']
+    $packages = [ 'htop', 'vim-puppet', 'puppet', 'puppet-common', 'ethtool', 'zsh', 'git', 'tmux']
 	ensure_packages($packages)
 
 	class { 'ohmyzsh': }
