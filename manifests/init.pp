@@ -2,8 +2,11 @@ include stdlib
 
 class common {
 
-    $packages = [ 'htop', 'vim-puppet', 'puppet', 'puppet-common', 'ethtool']
+    $packages = [ 'htop', 'vim-puppet', 'puppet', 'puppet-common', 'ethtool', 'zsh', 'git']
 	ensure_packages($packages)
+
+	class { 'ohmyzsh': }
+	ohmyzsh::install { 'rennecke': }
 
 
     file { '/var/lib/vim/addons/syntax/':
