@@ -3,10 +3,8 @@ include stdlib
 class common {
 
     $packages = [ 'htop', 'vim-puppet', 'puppet', 'puppet-common', 'ethtool']
-    package { $packages:
-        ensure  => 'latest',
-        require => Apt::Source['puppetlabs'],
-    }
+	ensure_packages($packages)
+
 
     file { '/var/lib/vim/addons/syntax/':
         ensure => directory,
@@ -50,6 +48,7 @@ class common {
 
     class { 'apt':
         update_timeout => 300,
+		always_apt_update => true,
     }
 
     apt::source { 'puppetlabs':
