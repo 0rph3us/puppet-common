@@ -62,6 +62,14 @@ class common {
         pin        => 1000,
     }
 
+	# use universe for ubuntu
+	apt::source { 'i3-stable':
+		location => 'http://debian.sur5r.net/i3',
+		repos    => 'main',
+		key      => '6298B4A2',
+		pin      => 1001,
+	}
+
 
 	class { '::ntp':
  		servers => [ '0.de.pool.ntp.org', '1.de.pool.ntp.org', '2.de.pool.ntp.org', '3.de.pool.ntp.org', ],
