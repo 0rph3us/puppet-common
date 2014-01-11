@@ -62,10 +62,22 @@ class common {
         pin        => 1000,
     }
 
-	# use universe for ubuntu
+
+	case $::operatingsystem {
+    	debian: { 
+			$repo = "main" 
+		}
+      	ubuntu: { 
+			$repo = "universe"
+		}
+      	default: {
+			fail("Unrecognized operating system for i3 rpo")
+		}
+    }
+
 	apt::source { 'i3-stable':
 		location => 'http://debian.sur5r.net/i3',
-		repos    => 'main',
+		repos    => $repo,
 		key      => '6298B4A2',
 		pin      => 1001,
 	}
