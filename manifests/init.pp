@@ -2,7 +2,10 @@ include stdlib
 
 class common {
 
-    $packages = [ 'htop', 'vim-puppet', 'puppet', 'puppet-common', 'ethtool', 'zsh', 'git', 'tmux', 'yakuake']
+    $packages = [ 'htop', 'vim-puppet', 'puppet', 'puppet-common', 'ethtool', 'zsh', 'git', 'tmux', 'guake']
+    package { 'yakuake':
+        ensure => purge,
+    }
 	ensure_packages($packages)
 
 	class { 'ohmyzsh': }
