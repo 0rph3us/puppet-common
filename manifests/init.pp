@@ -4,7 +4,7 @@ class common {
 
     $packages = [ 'htop', 'vim-puppet', 'puppet', 'puppet-common', 'ethtool', 'zsh', 'git', 'tmux', 'guake']
     package { 'yakuake':
-        ensure => purge,
+        ensure => purged,
     }
 	ensure_packages($packages)
 
