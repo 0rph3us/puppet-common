@@ -1,4 +1,4 @@
-class sources {
+class common::sources {
 
     class { 'apt':
         update_timeout => 300,
