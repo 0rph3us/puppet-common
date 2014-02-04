@@ -39,7 +39,7 @@ class common::sources {
         ubuntu: {
             $repo = 'universe'
         }
-          default:
+        default: {
             fail('Unrecognized operating system for i3 repo')
         }
     }
