@@ -10,8 +10,8 @@ class common {
 
 
 
-	class { 'ohmyzsh': }
-	ohmyzsh::install { 'rennecke': }
+    class { 'ohmyzsh': }
+    ohmyzsh::install { 'rennecke': }
 
 
 
@@ -20,7 +20,7 @@ class common {
         source => 'puppet:///modules/anacron/batched_discard',
         owner  => 'root',
         group  => 'root',
-        mode   => '550',
+        mode   => '0550',
         before => Class['anacron'],
     }
 
@@ -36,7 +36,7 @@ class common {
     }
 
 
-	class { '::ntp':
- 		servers => [ '0.de.pool.ntp.org', '1.de.pool.ntp.org', '2.de.pool.ntp.org', '3.de.pool.ntp.org', ],
-	}
+    class { '::ntp':
+        servers => [ '0.de.pool.ntp.org', '1.de.pool.ntp.org', '2.de.pool.ntp.org', '3.de.pool.ntp.org', ],
+    }
 }
