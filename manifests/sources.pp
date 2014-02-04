@@ -12,9 +12,16 @@ class common::sources {
         pin        => 1000,
     }
 
-
     # sources for node.js
     case $::operatingsystem {
+		debian: {
+			apt::source { "${::lsbdistcodename}-backports":
+				release    => "${::lsbdistcodename}-backports",
+	        	location   => 'http://ftp2.de.debian.org/debian/',
+		        repos      => 'main contrib non-free',
+		        pin        => 1000,
+    		}
+		}
         ubuntu: {
             apt::ppa { 'ppa:chris-lea/node.js': }
         }
@@ -22,8 +29,6 @@ class common::sources {
             fail("Unrecognized operating system for node.js repo")
         }
     }
-
-
 
 
     # souces for i3
