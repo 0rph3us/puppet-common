@@ -19,7 +19,7 @@ class common::sources {
                 release    => "${::lsbdistcodename}-backports",
                 location   => 'http://ftp2.de.debian.org/debian/',
                 repos      => 'main contrib non-free',
-                pin        => 1000,
+                pin        => 10,
             }
         }
         ubuntu: {
