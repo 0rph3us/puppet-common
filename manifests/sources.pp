@@ -1,8 +1,9 @@
 class common::sources {
 
-    class { 'apt':
-        update_timeout => 300,
-    }
+    include ::apt
+#    class { 'apti':
+#        update_timeout => 300,
+#    }
 
     apt::source { 'puppetlabs':
         location   => 'http://apt.puppetlabs.com',
